@@ -29,12 +29,12 @@ function jsonFormat( text )
             case ']' : response += '\n' + addSpaces( spaces ) + val; 
                        spaces--; break;
             case ',' : response += val + '\n' + addSpaces( spaces ); break;
-            case ':' : response += " " + val + " "; break;
+
             default  : response += val;
         
         }
     }   
-    return response;
+    return response.replace( /":/g, "\" : " );
 }
 
 module.exports = Formats
