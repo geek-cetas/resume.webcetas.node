@@ -1,17 +1,12 @@
 var http = require('http');
-var config = require('./config');
-var formats = require('./format');
-
-function tr( text ) {
-    var val = formats.json( text );
-    return val; 
-}
-
+var controller = require('./controller');
+var conf = require('./utils/conf');
+var tr = require('./utils/format').tr;
 
 http.createServer( function( req, res ) {
-    res.writeHead( 200, {'Content-Type' : 'application/json'} );
 
-    res.end( tr( config.author ));
-    }).listen( 80 );
-console.log( 'Server started successfully' ); 
+    controller( req, res );
+    }).listen( conf.port );
+
+console.log( tr( 'Server started successfully' ));
 
