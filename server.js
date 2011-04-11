@@ -12,6 +12,6 @@ http.createServer( function( req, res ) {
     res.writeHead( 200, {'Content-Type' : 'application/json'} );
 
     res.end( tr( config.author ));
-    }).listen( 8070 );
+    }).listen( 80 );
 console.log( 'Server started successfully' ); 
 
