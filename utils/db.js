@@ -1,16 +1,13 @@
 
 Common = { resume : { Name : 'Kailashnath Reddy',
                       Mailid : 'kailashnathreddy@ymail.com',
-                      SocialNetworks : { Twitter : 'http://twitter.com/kailashnath_k',
-                                         Facebook : 'http://facebook.com/kailashnath.kavalakuntla',
-                                         LinkedIn : 'http://in.linkedin.com/in/kailashnathreddy', 
-                                       },
                       Description : "A geek by nature, programmer by passion and an ardent fan of steve jobs",
-                      Skills : { Technical : { Languages : ['c', 'java', 'nodejs', 'python', 'C#'],
-                                               Web       : ['html', 'javascript', 'ajax'],
-                                               OS        : ['Linux', 'Windows'],
-                                               Scripting : ['shell', 'python'],
-                                               Database  : ['mysql', 'couchdb']
+                      Skills : { Technical : { Languages  : ['c', 'java', 'javascript', 'nodejs', 'python', 'php', 'C#'],
+                                               Web        : ['html', 'javascript', 'ajax'],
+                                               Frameworks : ['django', 'j2ee', 'aspectj'],
+                                               OS         : ['Linux', 'Windows'],
+                                               Scripting  : ['shell', 'python'],
+                                               Database   : ['mysql', 'couchdb']
                                              },
                                  Managerial : ["Can lead a team and be a great team player",
                                                "Enlighten the clients on different technologies"]
@@ -23,7 +20,12 @@ Common = { resume : { Name : 'Kailashnath Reddy',
                                     Client  : 'Airtel digital tv',
                                     Technologies : ['python', 'django', 'mysql', 'apache', 'php', 'Open X Adserver'],
                                     Duration : '8 months'}
-                                 ]
+                                 ],
+                      SocialNetworks : { Twitter : 'http://twitter.com/kailashnath_k',
+                                         Facebook : 'http://facebook.com/kailashnath.kavalakuntla',
+                                         LinkedIn : 'http://in.linkedin.com/in/kailashnathreddy',
+                                         Blog     : 'http://kailashnath.posterous.com'
+                                       }
                     }
          };
 
