@@ -1,4 +1,4 @@
-Config = { port : 8090,
+Config = { port : 80,
            views : {} }
 
 module.exports = Config
