@@ -1,16 +1,23 @@
 var https = require('https');
+var qfmt  = require('querystring');
 
 var options = { host : 'www.googleapis.com',
-                port : 443,
-                path : '/language/translate/v2?key=AIzaSyCCinrsoboqDq-w8GKGP3HZSbpmkBh_lE4&q={0}&target={1}'}
+                method : 'GET',
+                path  : null,
+                path_ : '/language/translate/v2?',
+              }
+
+var query  = { key : 'AIzaSyCCinrsoboqDq-w8GKGP3HZSbpmkBh_lE4',
+               target : null,
+               q : null}
 
 function translate( dst, text, callback )
 {
-    console.log("Translating to " + dst);
-    options.path = options.path.replace( '{0}', text ).replace( '{1}', dst );
-    console.log( options.path );
+    query.target = dst; query.q = text.toString();
+    options.path = options.path_ + qfmt.stringify( query, '&', '=' );
+
     https.get( options, function( res ) {
-        res.on( 'data', function( data ) { callback( data ); });
+        res.on( 'data', function( data ) { console.log('success' ); callback( data ); });
     }).on( 'error', function( data ) { console.log( 'error' + data ); callback( data.message ); });
 
 }

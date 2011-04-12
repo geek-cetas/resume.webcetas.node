@@ -14,7 +14,7 @@ function drive( req, res )
 
     langs.set( req.headers['accept-language'] );
 
-    res.writeHead( 200, {'Content-Type' : 'text/plain;charset=utf-8'} );
+    res.writeHead( 200, {'Content-Type' : 'text/html;charset=utf-8'} );
     func( req, writer(res));
 
 /*    if( !res.finished )
@@ -28,7 +28,7 @@ function writer( response )
 {
     var res = response;
 
-    return function( data ) { res.write( data ); res.end(); };
+    return function( data ) { console.log( data ); res.write( data ); res.end(); };
 }
 
 module.exports = drive
