@@ -13,6 +13,8 @@ var query  = { key : 'AIzaSyCCinrsoboqDq-w8GKGP3HZSbpmkBh_lE4',
 
 function translate( dst, text, callback )
 {
+    callback( text );
+    return;
     query.target = dst; query.q = text.toString();
     options.path = options.path_ + qfmt.stringify( query, '&', '=' );
 
