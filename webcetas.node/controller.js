@@ -1,14 +1,10 @@
-var views = require('./views');
-var db = require('./utils/db');
-
-var url_mapping = { '/home' : views.home,
-                    '/resume' : views.resume,
-                    '/' : views.home }
+var conf = require('./conf');
 
 function drive( req, res )
 {
     console.log( req.url );
-    var func = url_mapping[req.url];
+    func = conf.views[req.url];
+
     if( func == null )
     {
         res.writeHead( 404, {'Content-Type' : 'application/json'} ); 

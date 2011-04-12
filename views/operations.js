@@ -1,7 +1,7 @@
-var tr = require('../utils/format').tr;
+var tr = require('../webcetas.node/utils/format').tr;
 var db = require('../utils/db');
 
-operations = { home : home, resume : resume };
+url_mapping = { '/home' : home, '/resume' : resume };
 
 function home( req, res )
 {
@@ -18,4 +18,4 @@ function skills( req, res )
     res.write( tr( db.Skills ));
 }
 
-module.exports = operations
+module.exports = url_mapping

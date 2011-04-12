@@ -1,7 +1,10 @@
 var http = require('http');
-var controller = require('./controller');
-var conf = require('./utils/conf');
-var tr = require('./utils/format').tr;
+var controller = require('./webcetas.node/controller');
+var conf = require('./webcetas.node/conf');
+var tr = require('./webcetas.node/utils/format').tr;
+var views = require('./views/operations');
+
+conf.views = views
 
 http.createServer( function( req, res ) {
 
