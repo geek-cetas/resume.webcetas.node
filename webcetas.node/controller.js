@@ -7,12 +7,12 @@ function drive( req, res )
 
     if( func == null )
     {
-        res.writeHead( 404, {'Content-Type' : 'application/json'} ); 
+        res.writeHead( 404, {'Content-Type' : 'text/plain'} ); 
         res.end();
         return;
     }
 
-    res.writeHead( 200, {'Content-Type' : 'application/json'} );
+    res.writeHead( 200, {'Content-Type' : 'text/plain'} );
     func( req, res );
 
     if( !res.finished )
