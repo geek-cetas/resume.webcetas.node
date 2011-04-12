@@ -1,43 +1,24 @@
-var formats = require('./formats');
+var eng = require('../conf');
 
 langs = { set : setLanguage,
           get : getLanguage,
-          tr  : tr }
+          tr  : translate }
 
-var default_lang  = 'en';
+var dest_lang  = 'en';
 
 function setLanguage( lang )
 {
-   default_lang = lang.split(',')[0].substr(0,2);
+   dest_lang = lang.split(',')[0].substr(0,2);
 }
 
 function getLanguage()
 {
-    return default_lang;
+    return dest_lang;
 }
 
-function translate( str )
+function translate( str, callback )
 {
-    if( default_lang == 'hi' )
-        return 'मानक हिन्दी';
-    else
-        return str;
- 
-}
-
-function tr( obj )
-{
-    var result = "";
-    console.log( 'Language is ' + langs.get() );
-
-    if( typeof obj == 'string' )
-        result = formats.text( obj );
-
-    else if( typeof obj == 'object' )
-        result = formats.json( obj );
-
-    return translate( result );
-    
+    eng.translate_engine( dest_lang, str, callback ); 
 }
 
 module.exports = langs;

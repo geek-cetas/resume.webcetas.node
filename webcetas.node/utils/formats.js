@@ -2,13 +2,41 @@ var langs = require('./langs');
 
 Formats = { json : jsonFormat,
             text : strFormat,
+            fmt  : format,
+            fmtr : formatAndTranslate
           }
+
+translate = null;
 
 function addSpaces( count )
 {
     return new Array( count ).join( '  ' );
 }
 
+function formatAndTranslate( translator )
+{
+    translate = translator;
+    return format;
+}
+
+function format( obj, callback )
+{
+    var response;
+
+    if( typeof obj == 'object' )
+        response = jsonFormat( obj );
+
+    else if( typeof obj == 'string' )
+        response = strFormat( obj );
+
+    if( response != null && translate != null )
+    {
+        translate( response, callback );
+        return;
+    }
+
+    callback( response );
+}
 
 function strFormat( text )
 {

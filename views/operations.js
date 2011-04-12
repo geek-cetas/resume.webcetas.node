@@ -1,21 +1,22 @@
 var tr = require('../webcetas.node/utils/langs').tr;
+var fmt = require('../webcetas.node/utils/formats').fmtr(tr);
 var db = require('../utils/db');
 
 url_mapping = { '/' : resume, '/home' : home, '/resume' : resume };
 
-function home( req, res )
+function home( reader, writer )
 {
-    res.write( tr("hello world") );
+    fmt( "hello world", writer );
 }
 
-function resume( req, res )
+function resume( reader, writer )
 {
-    res.write( tr( db.resume ));
+    fmt( db.resume, writer );
 }
 
-function skills( req, res )
+function skills( reader, writer )
 {
-    res.write( tr( db.Skills ));
+   fmt( db.Skills, writer );
 }
 
 module.exports = url_mapping
