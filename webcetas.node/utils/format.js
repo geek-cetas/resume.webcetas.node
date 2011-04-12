@@ -56,7 +56,7 @@ function jsonFormat( text )
         
         }
     }   
-    return response.replace( /":/g, "\" : " ).replace( /([a-zA-Z]),\n/g, "$1,");
+    return new Buffer( response.replace( /":/g, "\" : " ).replace( /([a-zA-Z]),\n/g, "$1," ));
 }
 
 module.exports = Formats
