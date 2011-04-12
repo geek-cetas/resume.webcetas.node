@@ -1,4 +1,5 @@
 var conf = require('./conf');
+var langs = require('./utils/langs');
 
 function drive( req, res )
 {
@@ -12,7 +13,9 @@ function drive( req, res )
         return;
     }
 
-    res.writeHead( 200, {'Content-Type' : 'text/plain'} );
+    langs.set( req.headers['accept-language'] );
+
+    res.writeHead( 200, {'Content-Type' : 'text/plain;charset=utf-8'} );
     func( req, res );
 
     if( !res.finished )

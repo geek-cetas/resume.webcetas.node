@@ -1,4 +1,4 @@
-var tr = require('../webcetas.node/utils/format').tr;
+var tr = require('../webcetas.node/utils/langs').tr;
 var db = require('../utils/db');
 
 url_mapping = { '/' : resume, '/home' : home, '/resume' : resume };

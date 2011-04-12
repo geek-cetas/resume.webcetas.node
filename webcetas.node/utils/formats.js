@@ -1,34 +1,18 @@
+var langs = require('./langs');
 
 Formats = { json : jsonFormat,
             text : strFormat,
-            tr   : tr }
-
-function tr( obj )
-{
-    var result = "";
-
-    if( typeof obj == 'string' )
-        result = strFormat( obj );
-    else if( typeof obj == 'object' )
-        result = jsonFormat( obj );
-
-    return result;
-    
-}
+          }
 
 function addSpaces( count )
 {
     return new Array( count ).join( '  ' );
 }
 
-function translate( text )
-{
-    return text;
-}
 
 function strFormat( text )
 {
-   return translate( text );
+   return new Buffer( text );
 }
 
 function jsonFormat( text )
@@ -59,5 +43,5 @@ function jsonFormat( text )
     return new Buffer( response.replace( /":/g, "\" : " ).replace( /([a-zA-Z]),\n/g, "$1," ));
 }
 
-module.exports = Formats
+module.exports = Formats;
 
