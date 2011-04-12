@@ -51,11 +51,12 @@ function jsonFormat( text )
                        spaces--; break;
             case ',' : response += val + '\n' + addSpaces( spaces ); break;
 
+
             default  : response += val;
         
         }
     }   
-    return response.replace( /":/g, "\" : " );
+    return response.replace( /":/g, "\" : " ).replace( /[a-zA-Z],\n/g, ",");
 }
 
 module.exports = Formats
