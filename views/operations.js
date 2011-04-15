@@ -18,8 +18,8 @@ function home( req, res, page )
     });
 });
 
-view('/resume$',
-function resume( req, res )
+view('^(/|/resume)$',
+function resume( req, res, args )
 {
     res.writeHead(200, {'Content-type' : 'text/plain;charset=utf-8'});
     fmt( db.resume, write( res ));
