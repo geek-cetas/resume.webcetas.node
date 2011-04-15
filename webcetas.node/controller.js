@@ -3,7 +3,16 @@ var conf = require('./conf');
 function drive( req, res )
 {
     console.log( req.url );
-    func = conf.views[req.url];
+    var view_key = req.url;
+
+    if( req.url[req.url.length - 1] == '/' )
+    {
+        view_key = new Buffer( req.url.length - 1 );
+        var url = new Buffer( req.url );
+        url.copy( view_key, 0, 0, req.url.length -1 );
+    }
+
+    func = conf.views[view_key.toString()];
 
     if( func == null )
     {
