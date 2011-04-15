@@ -1,36 +1,25 @@
 var conf = require('./conf');
+var views = require('./views');
 
 function drive( req, res )
 {
-    console.log( req.url );
-    var view_key = req.url;
+    res.writeHead( 200, {'Content-Type' : 'text/html;charset=utf-8'} );
 
-    if( req.url[req.url.length - 1] == '/' )
-    {
-        view_key = new Buffer( req.url.length - 1 );
-        var url = new Buffer( req.url );
-        url.copy( view_key, 0, 0, req.url.length -1 );
-    }
+    var vw = views.match(req.url).on('match',
+         function(view, args) {
+            try {
+                new view(req, res, args);
+            }
+            catch(e) { console.log("ERROR : " + e);
+                       res.writeHead(500, {'Content-Type': 'text/html'}); }
 
-    func = conf.views[view_key.toString()];
+        }).on('fail', function(err) {
+                         res.writeHead( 404 );
+                         console.log(err); res.end();
+                         });
 
-    if( func == null )
-    {
-        res.writeHead( 404, {'Content-Type' : 'text/plain'} ); 
-        res.end();
-        return;
-    }
-
-    langs.set( req.headers['accept-language'] );
-
-    res.writeHead( 200, {'Content-Type' : 'text/plain;charset=utf-8'} );
-    func( req, res);
-
-    if( !res.finished )
-    {
-        res.end();
-    }
-
+    vw.run();
+        
 }
 
 function writer( response )
