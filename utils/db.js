@@ -28,7 +28,7 @@ Common = { resume : { Name : 'Kailashnath Reddy',
                                     Duration : '11+ months' }
                                  ],
                       Achievements : ['Appeared in the client’s news letter for the innovation in applications developed',
-                                      'Awarded the phoenix award by the Infosys HRPG( High risk project group) for help bring a turn around in the project',
+                                      'Awarded the phoenix award by the Infosys HRPG(High risk project group) for help bring a turn around in the project',
                                       'Published a paper in SetLabs journal an internationally acclaimed business and technology journal by Infosys on "Effective Business analysis"',
                                       'The same paper was taken up by "University of Alaska" as a part of course material for one of their educational programs very recently',
                                       'Received certificate of excellence and ipod from the client for bringing a turn around in the project'],
