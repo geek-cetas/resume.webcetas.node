@@ -22,7 +22,6 @@ function formatAndTranslate( translator )
 function format( obj, callback )
 {
     var response;
-
     if( typeof obj == 'object' )
         response = jsonFormat( obj );
 
@@ -34,7 +33,6 @@ function format( obj, callback )
         translate( response, callback );
         return;
     }
-
     callback( response );
 }
 

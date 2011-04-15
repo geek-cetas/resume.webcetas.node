@@ -15,13 +15,13 @@ function drive( req, res )
     langs.set( req.headers['accept-language'] );
 
     res.writeHead( 200, {'Content-Type' : 'text/plain;charset=utf-8'} );
-    func( req, writer(res));
+    func( req, res);
 
-/*    if( !res.finished )
+    if( !res.finished )
     {
         res.end();
     }
-*/
+
 }
 
 function writer( response )
