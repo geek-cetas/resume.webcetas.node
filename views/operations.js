@@ -34,6 +34,13 @@ function sub( req, res, args )
     res.end();
 });
 
+view('/blog[/]?$',
+function( req, res )
+{
+    res.writeHead( 302, {'Location' : 'http://www.kailashnath.posterous.com'} );
+    res.end();
+});
+
 view('/vtest/([0-9]+)/([0-9]+)/$',
     function vtest( req, res, args )
     {
