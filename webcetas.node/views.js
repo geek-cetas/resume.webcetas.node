@@ -1,7 +1,6 @@
 var emitter = require('events').EventEmitter;
 views = [];
 
-
 var view = function( regx, v ) {
      if( regx == null || v == null )
         return;
@@ -17,7 +16,7 @@ function serve( path )
 serve.prototype = new emitter;
 serve.prototype.run = function()
 {
-    for(var i = 0; i < views.length; i++ )
+    for( var i = 0; i < views.length; i++ )
     {
         var matches = this.path.match( views[i][0] );
         if( matches != null )
