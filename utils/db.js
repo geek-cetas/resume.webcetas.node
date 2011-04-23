@@ -1,7 +1,7 @@
 
 Common = { resume : { Name : 'Kailashnath Reddy',
                       Mailid : 'kailashnathreddy@ymail.com',
-                      Description : "A geek by nature, programmer by passion and an ardent fan of steve jobs",
+                      AboutMe: "A geek by nature, programmer by passion and an ardent fan of steve jobs",
                       Experience : '46 months',
                       Skills : { Technical : { Languages  : ['c', 'java', 'javascript', 'nodejs', 'python', 'php', 'C#'],
                                                Web        : ['html', 'javascript', 'ajax'],
