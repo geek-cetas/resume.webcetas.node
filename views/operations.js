@@ -18,7 +18,7 @@ function home(req, res, page)
 });
 
 //view('^(/|/resume)[?/]?',
-view('^(/|/resume/([a-zA-Z.@]+)?/)$',
+view('^(/|/resume/([a-zA-Z.@]+/)?)$',
 function resume(req, res, args)
 {
     res.writeHead(200, {'Content-type' : 'text/plain;charset=utf-8'});
@@ -42,6 +42,7 @@ function resume(req, res, args)
     {
         req.on('data', function(data) {
            data = eval("(" + data.toString() + ")");
+            console.log(data);
            if( data.api_key != '03k41a0413' )
                ex( conn, new Error( "Invalid api key" ));
            else
