@@ -18,9 +18,10 @@ function home(req, res, page)
 });
 
 //view('^(/|/resume)[?/]?',
-view('^(/|/resume/([a-zA-Z.@]+/)?)$',
+view('^(/|/resume/([a-zA-Z.@]+)?(/)?)?$',
 function resume(req, res, args)
 {
+    console.log( args );
     res.writeHead(200, {'Content-type' : 'text/plain;charset=utf-8'});
     var conn = ds();
     if(req.method == 'GET') {
