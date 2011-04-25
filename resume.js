@@ -2,6 +2,10 @@ var dba = require('./db').db('closume', '127.0.0.1', 27017);
 var ev = require('events').EventEmitter;
 var ex = require('./webcetas.node/ex').ex;
 
+var exceptions = {ERROR_MAIL_ID : new Error("Invalid mailid"),
+                  ERROR_DUPLICATE_ID : new Error("Duplicate id found"),
+                  ERROR_API_KEY : new Error("Invalid api key")};
+
 var resume = function() {
 }
 
@@ -30,7 +34,7 @@ resume.prototype.save = function( doc ) {
     var $ = this;
     $.once( 'find', function( docs ) {
             if( docs.length > 0 )
-                ex( $, new Error("Duplicate entry") );
+                ex( $, exceptions.ERROR_DUPLICATE_ID );
             else {
                  $.table.insert( doc, function( docs ) {
                         $.emit( 'insert', docs );
@@ -43,7 +47,7 @@ resume.prototype.save = function( doc ) {
 resume.prototype.find = function( mailid ) {
     var $ = this;
     if( !mailid )
-        ex( $, new Error("Invalid mailid"));
+        ex( $, exceptions.ERROR_MAIL_ID ); 
     else
         this.table.find( {'Mailid' : mailid}, function( err, cursor ) {
             ex( $, err, function() {
@@ -65,5 +69,7 @@ var newResume = function() {
     return obj;
 }
 
-module.exports = {resume : newResume};
+
+module.exports = {resume : newResume,
+                  ex : exceptions};
 

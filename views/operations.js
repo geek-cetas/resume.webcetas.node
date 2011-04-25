@@ -1,7 +1,8 @@
 var fmt = require('../utils/formats').fmt;
 var view = require('../webcetas.node/views').view;
 var fs = require('fs');
-var ds = require('../resume').resume;
+var rsm = require('../resume');
+var ds = rsm.resume;
 var ex = require('../webcetas.node/ex').ex;
 
 view('/home/([a-z]+).html',
@@ -21,7 +22,6 @@ function home(req, res, page)
 view('^(/|/resume/([a-zA-Z.@0-9]+)?(/)?)?$',
 function resume(req, res, args)
 {
-    console.log( args );
     res.writeHead(200, {'Content-type' : 'text/plain;charset=utf-8'});
     var conn = ds();
     if(req.method == 'GET') {
@@ -36,7 +36,7 @@ function resume(req, res, args)
                     res.end();
                 }
             else
-                ex( conn, new Error( "Invalid mail id" ));
+                ex( conn, rsm.ex.ERROR_MAIL_ID );
         });
    }
     else if(req.method == 'POST')
@@ -45,7 +45,7 @@ function resume(req, res, args)
            data = eval("(" + data.toString() + ")");
             console.log(data);
            if( data.api_key != '03k41a0413' )
-               ex( conn, new Error( "Invalid api key" ));
+               ex( conn, rms.ex.ERROR_API_KEY );
            else
                conn.on( 'connect', function() {
                     delete data.api_key;
