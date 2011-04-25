@@ -6,7 +6,7 @@ var parser = function( req ) {
 }
 
 parser.prototype.params = function() {
-    return url.parse(this.url, true).query;
+    return url.parse( this.url, true ).query;
 }
 
 var newParser = function( req ) {

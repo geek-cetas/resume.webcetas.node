@@ -11,10 +11,6 @@ var resume = function() {
 
 resume.prototype = new ev();
 
-resume.prototype.throw = function(err) {
-    throw err;
-}
-
 resume.prototype.do = function() {
     var $ = this;
 

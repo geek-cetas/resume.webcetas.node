@@ -6,7 +6,7 @@ var ds = rsm.resume;
 var ex = require('../webcetas.node/ex').ex;
 
 view('/home/([a-z]+).html',
-function home(req, res, page)
+function home( req, res, page )
 {
     var out = res;
     var $ = this;
@@ -20,7 +20,7 @@ function home(req, res, page)
 
 //view('^(/|/resume)[?/]?',
 view('^(/|/resume/([a-zA-Z.@0-9]+)?(/)?)?$',
-function resume(req, res, args)
+function resume( req, res, args )
 {
     res.writeHead(200, {'Content-type' : 'text/plain;charset=utf-8'});
     var conn = ds();
@@ -62,20 +62,20 @@ function resume(req, res, args)
 });
 
 view('/blog[/]?$',
-function(req, res)
+function( req, res )
 {
-    res.writeHead(302, {'Location' : 'http://www.kailashnath.posterous.com'});
+    res.writeHead( 302, {'Location' : 'http://www.kailashnath.posterous.com'} );
     res.end();
 });
 
 view('/vtest/([0-9]+)/([0-9]+)/$',
-    function vtest(req, res, args)
+    function vtest( req, res, args )
     {
         res.end("kailash test success !!" + args);
     });
 
-function write(res) 
+function write( res )
 {
-    return function(data) { res.write(data); };
+    return function( data ) { res.write( data ); };
 }
 
