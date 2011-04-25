@@ -18,7 +18,7 @@ function home(req, res, page)
 });
 
 //view('^(/|/resume)[?/]?',
-view('^(/|/resume/([a-zA-Z.@]+)?(/)?)?$',
+view('^(/|/resume/([a-zA-Z.@0-9]+)?(/)?)?$',
 function resume(req, res, args)
 {
     console.log( args );
