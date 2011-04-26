@@ -1,6 +1,6 @@
 var dba = require('./db').db('closume', '127.0.0.1', 27017);
 var ev = require('events').EventEmitter;
-var ex = require('./webcetas.node/ex').ex;
+var ex = require('../webcetas.node/ex').ex;
 
 var exceptions = {ERROR_MAIL_ID : new Error("Invalid mailid"),
                   ERROR_DUPLICATE_ID : new Error("Duplicate id found"),

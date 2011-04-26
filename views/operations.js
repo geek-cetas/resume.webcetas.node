@@ -1,9 +1,9 @@
 var fmt = require('../utils/formats').fmt;
-var view = require('../webcetas.node/views').view;
+var view = require('../../webcetas.node/views').view;
 var fs = require('fs');
 var rsm = require('../resume');
 var ds = rsm.resume;
-var ex = require('../webcetas.node/ex').ex;
+var ex = require('../../webcetas.node/ex').ex;
 
 view('/home/([a-z]+).html',
 function home( req, res, page )
