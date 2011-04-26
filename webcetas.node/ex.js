@@ -1,13 +1,13 @@
 var ev = require('events').EventEmitter;
 
-var exception = function( parent, ex, callback ) {
+var exception = function( ctx, ex, callback ) {
     if( !ex )
     {
         if( callback ) {callback();}
         return false;
     }
     console.log( ex.stack );
-    parent.emit( 'error', ex, message( ex ) );
+    ctx.emit( 'error', ex, message( ex ) );
     return true;
 };
 
