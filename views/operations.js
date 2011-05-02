@@ -18,6 +18,14 @@ function home( req, res, page )
     });
 });
 
+view('/kailash/',
+function resume_redirect( req, res )
+{
+    res.writeHead( 302, {'Location' :
+                   'http://kailash.no.de/resume/kailashnathreddy@ymail.com'});
+    res.end();
+});
+
 //view('^(/|/resume)[?/]?',
 view('^(/|/resume/([a-zA-Z.@0-9]+)?(/)?)?$',
 function resume( req, res, args )
