@@ -1,4 +1,4 @@
-var langs = require('../../webcetas.node/utils/langs');
+var langs = require('../webcetas.node/utils/langs');
 
 Formats = { json : jsonFormat,
             text : strFormat,
