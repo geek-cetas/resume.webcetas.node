@@ -18,7 +18,7 @@ function home( req, res, page )
     });
 });
 
-view('/kailash[/]?',
+view('/',
 function resume_redirect( req, res )
 {
     res.writeHead( 302, {'Location' :
